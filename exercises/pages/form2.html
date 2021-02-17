@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<body>
+    <!-- Worked on the input type of checkbox -->
+    <form action="/form2.php" method="post">
+        <label for="">Username:</label>
+        <input type="text" name="username">
+        <label for="mathematics">mathematics</label>
+        <input type="checkbox" name="subjects[]" value="Mathematics" id="mathematics">
+
+        <label for="english">english</label>
+        <input type="checkbox" name="subjects[]" value="English" id="english">
+
+        <label for="physics">physics</label>
+        <input type="checkbox" name="subjects[]" value="Physics" id="physics">
+
+        <button type="submit">Save</button>
+    </form>
+</body>
+
+</html>
