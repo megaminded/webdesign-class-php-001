@@ -16,9 +16,24 @@ $children = ["Peter", "John", "James"];
 # Checking if a variables has an empty value
 // using the empty() function
 
-if (empty($name)) {
-    print "Name is empty";
-} else {
-    print "Name is not empty";
+// if (empty($name)) {
+//     print "Name is empty";
+// } else {
+//     print "Name is not empty";
+// }
+
+// Variables has scopes
+$age = 12;
+function get_gender()
+{
+    // echo $age; # Not accessible;
+    $gender = "Boy";
+    return $gender; # Return the value to make it accessible outside
 }
 
+// echo $gender; # Not accessible from the outside
+// One way of getting the gender is by returning it in the function
+
+$gender = get_gender();
+
+echo $gender;
