@@ -1,8 +1,8 @@
 <?php
-function display_triangle()
+function display_rectangle()
 {
     $level = 10;
-    $html = "<div id='triangle'";
+    $html = "<div id='rectangle'";
     // $html = 
     if ($level > 50) {
         $html .= ' class="green"';
@@ -28,7 +28,7 @@ function display_triangle()
     <title>Document</title>
 
     <style>
-    #triangle {
+    #rectangle {
         width: 500px;
         height: 100px;
     }
@@ -44,7 +44,7 @@ function display_triangle()
 </head>
 
 <body>
-    <?php echo display_triangle(); ?>
+    <?php echo display_rectangle(); ?>
 </body>
 
 </html>
