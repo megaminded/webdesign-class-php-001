@@ -1,19 +1,31 @@
-<?php
-function display_rectangle()
+<?php function set_level($level)
 {
-    $level = 10;
-    $html = "<div id='rectangle'";
-    // $html = 
+    return " style='width: {$level}%'";
+}
+
+function set_class($level)
+{
     if ($level > 50) {
-        $html .= ' class="green"';
+        return "class='green'" . set_level($level);
     } else {
-        $html .= ' class="red"';
+        return "class='red'" . set_level($level);
     }
+}
 
-    $html .= ' style="width:' . $level . '%">';
-
-    $html .= "</div>";
+function display_error($error)
+{
+    $html = "<div id='circle'> {$error}</div>";
     return $html;
+}
+
+function display_rectangle($level)
+{
+    if (is_int($level)) {
+        $html = "<div id='rectangle' " . set_class($level) . "> </div>";
+        return $html;
+    } else {
+        return display_error("Invalid level enter, please try again with a number");
+    }
 }
 
 
@@ -26,11 +38,22 @@ function display_rectangle()
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <style>
     #rectangle {
         width: 500px;
         height: 100px;
+    }
+
+    #circle {
+        width: 400px;
+        height: 400px;
+        border-radius: 100%;
+        background-color: red;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .red {
@@ -44,7 +67,7 @@ function display_rectangle()
 </head>
 
 <body>
-    <?php echo display_rectangle(); ?>
+    <?php echo display_rectangle("James"); ?>
 </body>
 
 </html>
