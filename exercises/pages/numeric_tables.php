@@ -1,13 +1,39 @@
 <?php
-$numbers = [
-    'even' => [2, 4, 6, 8],
-    'odd'  => [1, 3, 5, 7]
-];
+function set_numbers($count = 200)
+{
+    $numbers = [
+        'even' => [],
+        'odd'  => []
+    ];
+    for ($i = 0; $i < $count; $i++) {
+        if ($i % 2 == 0 && $i != 0) {
+            array_push($numbers['even'], $i);
+        } elseif (true) {
+            array_push($numbers['odd'], $i);
+        }
+    }
+    return $numbers;
+}
 function loop_table_row($numbers, $index)
 {
-    $tr = "<tr> <td>" . $numbers['even'][$index] . "</td>  <td>" . $numbers['odd'][$index] . "</td> </tr>";
+    $even = "";
+    $odd = "";
+    if (isset($numbers['even'][$index])) {
+        $even = $numbers['even'][$index];
+    } else {
+        $even = "-";
+    }
+    if (isset($numbers['odd'][$index])) {
+        $odd = $numbers['odd'][$index];
+    } else {
+        $odd = "-";
+    }
+
+    $tr = "<tr> <td>" . $even . "</td>  <td>" . $odd . "</td> </tr>";
     return $tr;
 }
+
+$numbers = set_numbers(50);
 
 ?>
 
@@ -23,6 +49,10 @@ function loop_table_row($numbers, $index)
 
 <body>
     <table border="1">
+        <tr>
+            <th>Even</th>
+            <th>Odd</th>
+        </tr>
         <?php for ($i = 0; $i < count($numbers['even']); $i++) {
             echo loop_table_row($numbers, $i);
         } ?>
