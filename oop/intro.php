@@ -1,11 +1,21 @@
 <?php
 class AirCondition
 {
+    function __construct($value_of_fan)
+    {
+        // echo "Class is initialized, and the value of fan is: {$value_of_fan}";
+        $this->fan = $value_of_fan;
+    }
+
+    private $fan = false;
     function cool()
     {
-        $this->gas();
-        $this->start_fan();
-        print("Cooling the room");
+        if ($this->fan == true) {
+            $this->start_fan();
+            print("Cooling the room");
+        } else {
+            print("Cannot Cool the room, the fan must be on");
+        }
     }
     function hot()
     {
@@ -45,6 +55,6 @@ class Startimes
     }
 }
 // Instantiation
-$air_condition = new AirCondition();
+$air_condition = new AirCondition(false);
 
 $air_condition->cool();
