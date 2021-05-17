@@ -2,15 +2,27 @@
 session_start();
 class Validator{
 
+    /**
+     * Checks if an error exists
+     *
+     * @return boolean
+     */
     function fails()
     {
-        if (count($_SESSION['errors'])) {
+        if (isset($_SESSION['errors'])) {
             return true;
         } else {
             return false;
         }
         
     }
+
+    /**
+     * Reports any error found
+     *
+     * @param String $input
+     * @return void
+     */
     function report_error($input)
     {
         if (isset($_SESSION['errors'][$input])) {
@@ -18,7 +30,7 @@ class Validator{
         }        
     }
     /**
-     *
+     * Validates and input field
      * @param [string] $rule Determine the rule to validate
      * @param [string] $data The input value from our user
      * @param [string] $input The input tag
@@ -50,6 +62,13 @@ class Validator{
                 break;
         }
     }
+    /**
+     * Save errors encountered while processing the input
+     *
+     * @param [type] $field
+     * @param [type] $error_message
+     * @return void
+     */
     function save_error($field, $error_message)
     {
         $_SESSION['errors'][$field] = $error_message;

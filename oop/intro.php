@@ -58,3 +58,4 @@ class Startimes
 $air_condition = new AirCondition(false);
 
 $air_condition->cool();
+$air_condition->hot();
