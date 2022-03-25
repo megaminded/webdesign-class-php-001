@@ -1,5 +1,5 @@
 <?php
-# Multidimensional arrays
+# Associative arrays
 
 $students = ['John' => 'Black', 'Peter' => 'Fair', 'Kelvin' => 'Brown'];
 
